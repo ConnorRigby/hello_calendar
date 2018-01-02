@@ -66,6 +66,7 @@ defmodule HelloCalendar.Calendar do
   defp time_unit_to_seconds(repeat, "monthly"), do: 60 * 60 * 24 * 30 * repeat
   defp time_unit_to_seconds(repeat, "yearly"), do: 60 * 60 * 24 * 365 * repeat
 
+  @compile {:autoload, false}
   @on_load :load_nif
   def load_nif do
     nif_file = '#{:code.priv_dir(:hello_calendar)}/build_calendar'
